@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TowTeam >
+	<Team>
+		<assignmentid>1</assignmentid>
+		<service_type>Tow Service</service_type>
+		<driver_name>Mohan</driver_name>
+		<technitian_name>Kumar</technitian_name>
+		<vehicle_type>4 Wheeler</vehicle_type>
+	</Team>
+</TowTeam>
