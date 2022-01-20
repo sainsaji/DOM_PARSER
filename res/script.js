@@ -46,6 +46,7 @@ const showTable = (xmlRes) => {
            
             <td id='edit_delete_cont_${i}'>
                 <ion-icon onclick="removeNode(${i})" name="trash-outline" class="delete_icon"></ion-icon>
+                <ion-icon name="pencil-outline" class="edit_icon" onclick="changeNode(${i})"></ion-icon>
             </td>
             
             </tr>
@@ -59,6 +60,26 @@ const removeNode = (id) => {
     let child = state.xmlDocObj.getElementsByTagName('Team')[id];
     state.xmlDocObj.documentElement.removeChild(child);
     showTable(state.xmlDocObj)
+}
+
+const changeNode = (id) => {
+    if(id == null){return}
+    document.getElementById("form_cont").classList.toggle('hide');
+    const form = document.getElementById("changeForm");
+    let formElem = `
+    <input disabled class='input_fields' type='text' placeholder='Assignment Id' value='${state.xmlDocObj.getElementsByTagName("assignmentid")[id].childNodes[0].nodeValue}'/>
+    <input disabled class='input_fields' type='text' placeholder='Service Type' value='${state.xmlDocObj.getElementsByTagName("service_type")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='Driver Name' value='${state.xmlDocObj.getElementsByTagName("driver_name")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='Technitian Name' value='${state.xmlDocObj.getElementsByTagName("technitian_name")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='Vehicle Type' value='${state.xmlDocObj.getElementsByTagName("vehicle_type")[id].childNodes[0].nodeValue}'/>
+    <div class='btn_cont'>
+        <button class='submit_btn' type='submit' onclick='submitFormHandler(${id})'>Submit</button>
+        <button class='cancel_btn' onclick='cancelFormHandler()'>Cancel</button>
+    </div>
+    `;
+
+    form.innerHTML = formElem;
+    
 }
 
 
