@@ -99,7 +99,7 @@ const submitFormHandler = (id) => {
     cancelFormHandler();
 }
 
-const cancelFormHandler = () => {
+const cancelFormHandler = (id) => {
     event.preventDefault();
     document.getElementById("form_cont").classList.toggle('hide');
 
